@@ -1,0 +1,18 @@
+# General
+.env
+.DS_Store
+push_error.txt
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env/
+env/
+
+# Node
+node_modules/
+build/
+dist/
