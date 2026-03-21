@@ -527,6 +527,32 @@ tr:hover td {
   }
 }
 
+/* Component Layouts */
+.stage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  gap: 1.5rem;
+}
+.stage-header h2 {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.upload-action-panel {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+.upload-action-panel .btn-primary {
+  font-size: 1.1rem;
+  padding: 1rem 2.5rem;
+  white-space: nowrap;
+}
+
 @media (max-width: 480px) {
   .sidebar {
     padding: 1rem 0.75rem;
@@ -586,5 +612,27 @@ tr:hover td {
     padding: 0.65rem 1rem;
     font-size: 0.9rem !important;
     width: 100%; /* Make buttons full-width on tiny screens */
+  }
+  
+  /* Stack headers vertically on mobile */
+  .stage-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .stage-header h2 {
+    font-size: 1.6rem;
+  }
+  
+  .upload-action-panel {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    padding: 1.5rem 1rem !important;
+  }
+  .upload-action-panel .btn-primary {
+    padding: 0.85rem;
+    font-size: 1rem;
   }
 }

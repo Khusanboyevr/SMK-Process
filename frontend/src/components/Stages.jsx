@@ -28,7 +28,7 @@ export const UploadStage = ({ files, handleFileUpload, startAnalysis }) => {
         </label>
       </div>
       
-      <div className="glass-panel" style={{ padding: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div className="glass-panel upload-action-panel">
         <div>
           <h3 style={{ marginBottom: '0.25rem' }}>{t('upload.ready')}</h3>
           <p style={{ color: 'var(--text-secondary)' }}>{t('upload.readyDesc')}</p>
@@ -37,7 +37,6 @@ export const UploadStage = ({ files, handleFileUpload, startAnalysis }) => {
           className="btn-primary" 
           disabled={!files.pdf || !files.pptx} 
           onClick={startAnalysis} 
-          style={{ fontSize: '1.1rem', padding: '1rem 2.5rem' }}
         >
           {t('upload.start')} <IconArrowRight />
         </button>
@@ -63,8 +62,8 @@ export const SummaryStage = ({ setStage, data }) => {
   const { t } = useTranslation();
   return (
     <div className="animate-fade-in">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem' }}>
-        <h2 style={{ fontSize: '2rem' }}>{t('summary.title')}</h2>
+      <div className="stage-header">
+        <h2>{t('summary.title')}</h2>
         <button className="btn-primary" onClick={() => setStage(4)}>{t('summary.next')} <IconArrowRight /></button>
       </div>
       
@@ -97,8 +96,8 @@ export const CompareStage = ({ setStage, data }) => {
   const { t } = useTranslation();
   return (
     <div className="animate-fade-in">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem' }}>
-        <h2 style={{ fontSize: '2rem' }}>{t('compare.title')}</h2>
+      <div className="stage-header">
+        <h2>{t('compare.title')}</h2>
         <button className="btn-primary" onClick={() => setStage(5)}>{t('compare.next')} <IconArrowRight /></button>
       </div>
       
@@ -143,8 +142,8 @@ export const PDCAStage = ({ resetAnalysis, data }) => {
 
   return (
     <div className="animate-fade-in">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem' }}>
-        <h2 style={{ fontSize: '2rem' }}>{t('pdca.title')}</h2>
+      <div className="stage-header">
+        <h2>{t('pdca.title')}</h2>
         <button className="btn-primary" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-color)', boxShadow: 'none' }}>
           {t('pdca.download')}
         </button>
