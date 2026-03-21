@@ -98,30 +98,30 @@ export const CompareStage = ({ setStage, data }) => {
     <div className="animate-fade-in">
       <div className="stage-header">
         <h2>{t('compare.title')}</h2>
-        <button className="btn-primary" onClick={() => setStage(5)}>{t('compare.next')} <IconArrowRight /></button>
+        <button className="btn-primary outline-btn" onClick={() => setStage(5)}>{t('compare.next')} <IconArrowRight /></button>
       </div>
       
-      <div className="glass-panel" style={{ padding: '1rem', overflowX: 'auto' }}>
-        <table>
+      <div className="glass-panel compare-container">
+        <table className="compare-table">
           <thead>
             <tr>
-              <th style={{ minWidth: '200px' }}>{t('compare.crit')}</th>
-              <th style={{ minWidth: '300px', color: 'var(--success)' }}>{t('compare.uniCol')}</th>
-              <th style={{ minWidth: '300px', color: 'var(--accent-primary)' }}>{t('compare.indCol')}</th>
+              <th className="col-crit">{t('compare.crit')}</th>
+              <th className="col-uni">{t('compare.uniCol')}</th>
+              <th className="col-ind">{t('compare.indCol')}</th>
             </tr>
           </thead>
           <tbody>
             {data && data.length > 0 ? data.map((item, idx) => (
               <tr key={idx}>
-                <td style={{ fontWeight: '500', color: 'var(--text-primary)' }}>{item.criterion}</td>
-                <td style={{ color: 'var(--text-secondary)' }}>{item.university}</td>
-                <td style={{ color: 'var(--text-secondary)' }}>{item.industry}</td>
+                <td data-label={t('compare.crit')} className="td-crit">{item.criterion}</td>
+                <td data-label={t('compare.uniCol')} className="td-uni">{item.university}</td>
+                <td data-label={t('compare.indCol')} className="td-ind">{item.industry}</td>
               </tr>
             )) : (
               <tr>
-                <td style={{ fontWeight: '500', color: 'var(--text-primary)' }}>Mahsulot</td>
-                <td style={{ color: 'var(--text-secondary)' }}>Bilimli kadr</td>
-                <td style={{ color: 'var(--text-secondary)' }}>Moddiy xizmat</td>
+                <td data-label={t('compare.crit')} className="td-crit">Mahsulot</td>
+                <td data-label={t('compare.uniCol')} className="td-uni">Bilimli kadr</td>
+                <td data-label={t('compare.indCol')} className="td-ind">Moddiy xizmat</td>
               </tr>
             )}
           </tbody>
