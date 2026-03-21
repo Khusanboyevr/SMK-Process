@@ -68,22 +68,22 @@ export const SummaryStage = ({ setStage, data }) => {
       </div>
       
       <div className="summary-grid">
-        <div className="glass-panel" style={{ padding: '2.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.5rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>🏭</span>
-            <h3 style={{ color: 'var(--accent-primary)', fontSize: '1.5rem', margin: 0 }}>{t('summary.industry')}</h3>
+        <div className="glass-panel summary-panel">
+          <div className="summary-header">
+            <span>🏭</span>
+            <h3 className="industry-text">{t('summary.industry')}</h3>
           </div>
-          <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '1.05rem' }}>
+          <p className="summary-text">
             {data?.industry || "Sanoat korxonalari SMK poydevori sifatni ta'minlash tsikliga asoslanadi..."}
           </p>
         </div>
         
-        <div className="glass-panel" style={{ padding: '2.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.5rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>🎓</span>
-            <h3 style={{ color: 'var(--success)', fontSize: '1.5rem', margin: 0 }}>{t('summary.university')}</h3>
+        <div className="glass-panel summary-panel">
+          <div className="summary-header">
+            <span>🎓</span>
+            <h3 className="university-text">{t('summary.university')}</h3>
           </div>
-          <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '1.05rem' }}>
+          <p className="summary-text">
             {data?.university || "Ou maskani SMK xizmat sifatini oshirishga yo'naltiriladi..."}
           </p>
         </div>
@@ -144,33 +144,33 @@ export const PDCAStage = ({ resetAnalysis, data }) => {
     <div className="animate-fade-in">
       <div className="stage-header">
         <h2>{t('pdca.title')}</h2>
-        <button className="btn-primary" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-color)', boxShadow: 'none' }}>
+        <button className="btn-primary outline-btn">
           {t('pdca.download')}
         </button>
       </div>
       
       <div className="pdca-grid">
-        <div className="glass-panel" style={{ padding: '2rem', borderTop: '4px solid #3b82f6', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '50px', background: 'linear-gradient(to bottom, rgba(59, 130, 246, 0.1), transparent)' }} />
-          <h3 style={{ fontSize: '1.3rem', color: '#60a5fa' }}>{t('pdca.plan')}</h3>
+        <div className="glass-panel pdca-panel panel-plan">
+          <div className="panel-gradient-bg" />
+          <h3>{t('pdca.plan')}</h3>
           {renderList(data?.plan)}
         </div>
         
-        <div className="glass-panel" style={{ padding: '2rem', borderTop: '4px solid #10b981', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '50px', background: 'linear-gradient(to bottom, rgba(16, 185, 129, 0.1), transparent)' }} />
-          <h3 style={{ fontSize: '1.3rem', color: '#34d399' }}>{t('pdca.do1')}</h3>
+        <div className="glass-panel pdca-panel panel-do1">
+          <div className="panel-gradient-bg" />
+          <h3>{t('pdca.do1')}</h3>
           {renderList(data?.do_core)}
         </div>
         
-        <div className="glass-panel" style={{ padding: '2rem', borderTop: '4px solid #f59e0b', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '50px', background: 'linear-gradient(to bottom, rgba(245, 158, 11, 0.1), transparent)' }} />
-          <h3 style={{ fontSize: '1.3rem', color: '#fbbf24' }}>{t('pdca.do2')}</h3>
+        <div className="glass-panel pdca-panel panel-do2">
+          <div className="panel-gradient-bg" />
+          <h3>{t('pdca.do2')}</h3>
           {renderList(data?.do_support)}
         </div>
         
-        <div className="glass-panel" style={{ padding: '2rem', borderTop: '4px solid #ef4444', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '50px', background: 'linear-gradient(to bottom, rgba(239, 68, 68, 0.1), transparent)' }} />
-          <h3 style={{ fontSize: '1.3rem', color: '#f87171' }}>{t('pdca.checkAct')}</h3>
+        <div className="glass-panel pdca-panel panel-check-act">
+          <div className="panel-gradient-bg" />
+          <h3>{t('pdca.checkAct')}</h3>
           {renderList(data?.check_act)}
         </div>
       </div>
