@@ -102,8 +102,8 @@ function App() {
       {/* Main Area */}
       <main className="main-content">
         <header className="mb-8">
-          <h1 className="text-gradient" style={{ fontSize: '3rem', lineHeight: '1.2', marginBottom: '0.5rem' }}>{t('app.title')}</h1>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', maxWidth: '600px' }}>{t('app.desc')}</p>
+          <h1 className="text-gradient app-header-title">{t('app.title')}</h1>
+          <p className="app-header-desc">{t('app.desc')}</p>
         </header>
 
         {stage === 1 && <UploadStage files={files} handleFileUpload={handleFileUpload} startAnalysis={startAnalysis} />}

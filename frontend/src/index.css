@@ -501,13 +501,20 @@ tr:hover td {
     padding: 1.5rem 1rem;
   }
   
-  header h1.text-gradient {
+  .app-header-title {
     font-size: 2.2rem !important;
+  }
+  .app-header-desc {
+    font-size: 1.05rem;
   }
   
   .upload-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+  
+  .summary-grid, .pdca-grid {
+    grid-template-columns: 1fr;
   }
   
   .dropzone {
@@ -528,6 +535,30 @@ tr:hover td {
 }
 
 /* Component Layouts */
+.app-header-title {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+.app-header-desc {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  max-width: 600px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.pdca-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
 .stage-header {
   display: flex;
   justify-content: space-between;
@@ -575,15 +606,15 @@ tr:hover td {
   }
 
   .main-content {
-    padding: 1.25rem 0.5rem;
+    padding: 1rem 0.5rem; /* Maximize available screen space on 320px */
   }
   
-  header h1.text-gradient {
-    font-size: 1.6rem !important;
+  .app-header-title {
+    font-size: 1.8rem !important;
   }
   
-  header p {
-    font-size: 0.95rem !important;
+  .app-header-desc {
+    font-size: 0.95rem;
   }
   
   .upload-grid {

@@ -67,7 +67,7 @@ export const SummaryStage = ({ setStage, data }) => {
         <button className="btn-primary" onClick={() => setStage(4)}>{t('summary.next')} <IconArrowRight /></button>
       </div>
       
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '2rem' }}>
+      <div className="summary-grid">
         <div className="glass-panel" style={{ padding: '2.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.5rem', marginBottom: '1.5rem' }}>
             <span style={{ fontSize: '2rem' }}>🏭</span>
@@ -149,7 +149,7 @@ export const PDCAStage = ({ resetAnalysis, data }) => {
         </button>
       </div>
       
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
+      <div className="pdca-grid">
         <div className="glass-panel" style={{ padding: '2rem', borderTop: '4px solid #3b82f6', position: 'relative', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '50px', background: 'linear-gradient(to bottom, rgba(59, 130, 246, 0.1), transparent)' }} />
           <h3 style={{ fontSize: '1.3rem', color: '#60a5fa' }}>{t('pdca.plan')}</h3>
