@@ -68,7 +68,8 @@ export const SummaryStage = ({ setStage, data }) => {
       </div>
       
       <div className="summary-grid">
-        <div className="glass-panel summary-panel">
+        <div className="glass-panel summary-panel panel-industry">
+          <div className="panel-gradient-bg" />
           <div className="summary-header">
             <span>🏭</span>
             <h3 className="industry-text">{t('summary.industry')}</h3>
@@ -78,7 +79,8 @@ export const SummaryStage = ({ setStage, data }) => {
           </p>
         </div>
         
-        <div className="glass-panel summary-panel">
+        <div className="glass-panel summary-panel panel-university">
+          <div className="panel-gradient-bg" />
           <div className="summary-header">
             <span>🎓</span>
             <h3 className="university-text">{t('summary.university')}</h3>
