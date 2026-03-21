@@ -526,3 +526,65 @@ tr:hover td {
     padding: 1rem !important;
   }
 }
+
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 1rem 0.75rem;
+  }
+  
+  .brand {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .sidebar nav {
+    margin-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    gap: 0.25rem;
+  }
+  
+  .nav-link {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .main-content {
+    padding: 1.25rem 0.5rem;
+  }
+  
+  header h1.text-gradient {
+    font-size: 1.6rem !important;
+  }
+  
+  header p {
+    font-size: 0.95rem !important;
+  }
+  
+  .upload-grid {
+    gap: 1rem;
+  }
+  
+  .dropzone {
+    padding: 1.5rem 1rem;
+  }
+  
+  .dropzone-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .dropzone h3 {
+    font-size: 1.1rem;
+  }
+  
+  .glass-panel {
+    padding: 1.25rem 1rem !important;
+    border-radius: var(--radius-md) !important;
+  }
+  
+  .btn-primary {
+    padding: 0.65rem 1rem;
+    font-size: 0.9rem !important;
+    width: 100%; /* Make buttons full-width on tiny screens */
+  }
+}
