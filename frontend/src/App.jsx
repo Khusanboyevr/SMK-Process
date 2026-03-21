@@ -58,10 +58,10 @@ function App() {
   };
 
   return (
-    <div className="app-container" style={{ display: 'flex', minHeight: '100vh', width: '100%' }}>
-      {/* Sidebar */}
+    <div className="app-container">
+      {/* Sidebar - Glassmorphism applied via css */}
       <aside className="sidebar">
-        <div className="brand" style={{ marginBottom: '3rem' }}>
+        <div className="brand">
           <IconSettings /> SMK Builder
         </div>
         <nav>
@@ -72,26 +72,38 @@ function App() {
           <button className={`nav-link ${stage === 5 ? 'active' : ''}`} onClick={() => stage >= 3 && setStage(5)} disabled={stage < 3}><span>{t('app.navPDCA')}</span></button>
         </nav>
 
-        {/* Language Switcher */}
-        <div style={{ marginTop: 'auto', padding: '1rem 0' }}>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', marginBottom: '0.5rem' }}>Language</p>
+        {/* Premium Language Switcher */}
+        <div className="mt-auto pt-8">
+          <p className="mb-2 text-sm" style={{ color: 'var(--text-secondary)' }}>Language Preference</p>
           <select 
             onChange={changeLanguage} 
             value={i18n.language}
-            style={{ width: '100%', padding: '0.5rem', borderRadius: '4px', background: 'rgba(255,255,255,0.1)', color: 'white', border: 'none' }}
+            className="glass-panel"
+            style={{ 
+              width: '100%', 
+              padding: '0.75rem 1rem', 
+              color: 'var(--text-primary)', 
+              outline: 'none',
+              cursor: 'pointer',
+              appearance: 'none',
+              backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'right 1rem center',
+              backgroundSize: '1em'
+            }}
           >
-            <option value="uz" style={{ color: 'black' }}>O'zbek</option>
-            <option value="ru" style={{ color: 'black' }}>Русский</option>
-            <option value="en" style={{ color: 'black' }}>English</option>
+            <option value="uz" style={{ background: '#0f172a' }}>O'zbek</option>
+            <option value="ru" style={{ background: '#0f172a' }}>Русский</option>
+            <option value="en" style={{ background: '#0f172a' }}>English</option>
           </select>
         </div>
       </aside>
 
       {/* Main Area */}
-      <main className="main-content" style={{ flex: 1, padding: '3rem', maxWidth: '1200px', margin: '0 auto' }}>
-        <header className="mb-4" style={{ marginBottom: '2.5rem' }}>
-          <h1 className="text-gradient" style={{ fontSize: '2.5rem' }}>{t('app.title')}</h1>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem' }}>{t('app.desc')}</p>
+      <main className="main-content">
+        <header className="mb-8">
+          <h1 className="text-gradient" style={{ fontSize: '3rem', lineHeight: '1.2', marginBottom: '0.5rem' }}>{t('app.title')}</h1>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', maxWidth: '600px' }}>{t('app.desc')}</p>
         </header>
 
         {stage === 1 && <UploadStage files={files} handleFileUpload={handleFileUpload} startAnalysis={startAnalysis} />}
