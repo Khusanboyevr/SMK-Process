@@ -45,8 +45,9 @@ def extract_text_from_pptx(file_contents: bytes) -> str:
         text = []
         for slide in prs.slides:
             for shape in slide.shapes:
-                if hasattr(shape, "text") and shape.text.strip():
-                    text.append(shape.text.strip())
+                shape_text: str = getattr(shape, "text", "")
+                if shape_text.strip():
+                    text.append(shape_text.strip())
         return "\n".join(text)
     except Exception as e:
         print(f"PPTX extraction error: {e}")
@@ -103,7 +104,7 @@ def generate_mock_analysis() -> dict:
 
 def generate_ai_analysis(pdf_text: str, pptx_text: str) -> dict:
     """Groq AI orqali tahlil qilish, xatolikda mock data qaytarish"""
-    api_key = os.getenv("GROQ_API_KEY")
+    api_key: str = os.getenv("GROQ_API_KEY", "")
 
     if not api_key or "shu_yerga_kalitni" in api_key or len(api_key.strip()) < 10:
         print("Using MOCK DATA (No valid API key provided)")
@@ -152,6 +153,9 @@ def generate_ai_analysis(pdf_text: str, pptx_text: str) -> dict:
         )
 
         result_str = response.choices[0].message.content
+        if not result_str:
+            print("AI returned empty response. Falling back to Mock Data.")
+            return generate_mock_analysis()
         return json.loads(result_str)
     except json.JSONDecodeError as je:
         print(f"JSON parse error: {je}. Falling back to Mock Data.")
