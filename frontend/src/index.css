@@ -412,3 +412,117 @@ tr:hover td {
 .mb-2 { margin-bottom: 0.5rem; }
 .mb-4 { margin-bottom: 1rem; }
 .mb-8 { margin-bottom: 2rem; }
+
+/* ----------------------------------
+   Responsive / Mobile (Premium) 
+----------------------------------- */
+
+@media (max-width: 1024px) {
+  .app-container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .brand {
+    margin-bottom: 0;
+  }
+
+  .sidebar nav {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    margin-top: 1.5rem;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling native */
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+  }
+  
+  .sidebar nav::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome */
+  }
+  
+  .nav-link {
+    white-space: nowrap;
+    margin-bottom: 0;
+    padding: 0.75rem 1.25rem;
+  }
+  
+  .nav-link::before {
+    top: auto; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    height: 3px; 
+    width: auto;
+    transform: scaleX(0);
+    border-radius: 4px 4px 0 0;
+  }
+  
+  .nav-link.active::before {
+    transform: scaleX(1);
+  }
+  
+  .language-switcher {
+    margin-top: 0;
+    padding-top: 0;
+    width: 200px;
+  }
+  
+  .main-content {
+    padding: 2.5rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    padding: 1.5rem;
+  }
+  
+  .language-switcher {
+    display: none; /* Mobile view can hide language switcher to save space or move to menu - keeping it hidden for absolute premium focus if strictly not needed, or better: show it block */
+  }
+  
+  .brand {
+    font-size: 1.4rem;
+  }
+  
+  .main-content {
+    padding: 1.5rem 1rem;
+  }
+  
+  header h1.text-gradient {
+    font-size: 2.2rem !important;
+  }
+  
+  .upload-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .dropzone {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .glass-panel {
+    padding: 1.5rem !important;
+  }
+  
+  .glass-panel table {
+    font-size: 0.9rem;
+  }
+  
+  th, td {
+    padding: 1rem !important;
+  }
+}

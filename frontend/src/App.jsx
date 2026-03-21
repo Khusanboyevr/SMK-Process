@@ -73,7 +73,7 @@ function App() {
         </nav>
 
         {/* Premium Language Switcher */}
-        <div className="mt-auto pt-8">
+        <div className="language-switcher">
           <p className="mb-2 text-sm" style={{ color: 'var(--text-secondary)' }}>Language Preference</p>
           <select 
             onChange={changeLanguage} 
