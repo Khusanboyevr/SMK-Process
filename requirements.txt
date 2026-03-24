@@ -1,8 +1,0 @@
-streamlit
-pymupdf
-python-pptx
-groq
-pandas
-openpyxl
-python-dotenv
-python-docx
