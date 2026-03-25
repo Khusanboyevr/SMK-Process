@@ -43,12 +43,6 @@ export const AdminPanel = ({ siteData, onSave, onCancel }) => {
     setData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleArr = (arr, idx, field, value) => {
-    const next = [...data[arr]];
-    next[idx] = { ...next[idx], [field]: value };
-    setData(prev => ({ ...prev, [arr]: next }));
-  };
-
   const field = (label, name, textarea = false, placeholder = '') => (
     <div className="ap-field">
       <label className="ap-label">{label}</label>
@@ -93,116 +87,6 @@ export const AdminPanel = ({ siteData, onSave, onCancel }) => {
               <label className="ap-label">Joylashuv / Manzil</label>
               <input className="ap-input" type="text" name="address" value={data.address || ''} onChange={handle} placeholder="Toshkent, O'zbekiston" />
             </div>
-          </div>
-        </div>
-
-        {/* ── Hero ── */}
-        <div className="ap-card">
-          <h2><span>🏠</span> Asosiy Qism (Hero)</h2>
-          {field("Bosh Sarlavha (HTML: <br/> ishlaydi)", 'heroTitle')}
-          {field("Qisqa Ta'rif", 'heroDesc', true)}
-        </div>
-
-        {/* ── About ── */}
-        <div className="ap-card">
-          <h2><span>🏢</span> Kompaniya Haqida</h2>
-          {field('Sarlavha', 'aboutTitle')}
-          {field("Matn (HTML ishlaydi: <br/>, <strong>, <em>)", 'aboutText', true)}
-        </div>
-
-        {/* ── Services ── */}
-        <div className="ap-card">
-          <h2><span>⚙️</span> Xizmatlarimiz</h2>
-          {field('Bo\'lim Sarlavhasi', 'servicesTitle')}
-          <div className="ap-grid2">
-            {(data.services || []).map((item, idx) => (
-              <div key={idx} className="ap-item">
-                <div className="ap-item-header">Xizmat {idx + 1}</div>
-                <div className="ap-field">
-                  <label className="ap-label">Sarlavha</label>
-                  <input className="ap-input" value={item.title} onChange={e => handleArr('services', idx, 'title', e.target.value)} />
-                </div>
-                <div className="ap-field">
-                  <label className="ap-label">Qisqa tavsif</label>
-                  <textarea className="ap-input" rows={2} value={item.desc} onChange={e => handleArr('services', idx, 'desc', e.target.value)} />
-                </div>
-                <div className="ap-field" style={{ marginBottom: 0 }}>
-                  <label className="ap-label">Batafsil ma'lumot (Modal uchun)</label>
-                  <textarea className="ap-input" rows={4} value={item.fullDesc} onChange={e => handleArr('services', idx, 'fullDesc', e.target.value)} />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── Certificates ── */}
-        <div className="ap-card">
-          <h2><span>🏅</span> Sertifikatlar Bo'limi</h2>
-          {field("Bo'lim Sarlavhasi", 'certsTitle')}
-          <div className="ap-grid2">
-            {(data.certs || []).map((item, idx) => (
-              <div key={idx} className="ap-item">
-                <div className="ap-item-header">Sertifikat {idx + 1}</div>
-                <div className="ap-field">
-                  <label className="ap-label">Kod (masalan: ISO 9001)</label>
-                  <input className="ap-input" value={item.code} onChange={e => handleArr('certs', idx, 'code', e.target.value)} placeholder="ISO 9001" />
-                </div>
-                <div className="ap-field" style={{ marginBottom: 0 }}>
-                  <label className="ap-label">Nomi</label>
-                  <input className="ap-input" value={item.title} onChange={e => handleArr('certs', idx, 'title', e.target.value)} placeholder="Sifat menejment" />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── Process ── */}
-        <div className="ap-card">
-          <h2><span>🔄</span> Jarayon Bosqichlari</h2>
-          {field("Bo'lim Sarlavhasi", 'processTitle')}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            {(data.process || []).map((item, idx) => (
-              <div key={idx} className="ap-item" style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                <div style={{ fontWeight: 800, fontSize: '1.4rem', color: '#1d4ed8', width: '28px', flexShrink: 0, marginTop: '8px' }}>{idx + 1}</div>
-                <div style={{ flex: 1 }}>
-                  <div className="ap-grid2">
-                    <div className="ap-field">
-                      <label className="ap-label">Ikonka (Emoji)</label>
-                      <input className="ap-input" value={item.icon || ''} onChange={e => handleArr('process', idx, 'icon', e.target.value)} placeholder="🔍" />
-                    </div>
-                    <div className="ap-field">
-                      <label className="ap-label">Bosqich Nomi</label>
-                      <input className="ap-input" value={item.title} onChange={e => handleArr('process', idx, 'title', e.target.value)} />
-                    </div>
-                  </div>
-                  <div className="ap-field" style={{ marginBottom: 0 }}>
-                    <label className="ap-label">Ta'rif</label>
-                    <textarea className="ap-input" rows={2} value={item.desc} onChange={e => handleArr('process', idx, 'desc', e.target.value)} />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── Advantages ── */}
-        <div className="ap-card">
-          <h2><span>✅</span> Afzalliklar</h2>
-          {field("Bo'lim Sarlavhasi", 'advTitle')}
-          <div className="ap-grid2">
-            {(data.advantages || []).map((item, idx) => (
-              <div key={idx} className="ap-item">
-                <div className="ap-item-header">Afzallik {idx + 1}</div>
-                <div className="ap-field">
-                  <label className="ap-label">Sarlavha</label>
-                  <input className="ap-input" value={item.title} onChange={e => handleArr('advantages', idx, 'title', e.target.value)} />
-                </div>
-                <div className="ap-field" style={{ marginBottom: 0 }}>
-                  <label className="ap-label">Ta'rif</label>
-                  <textarea className="ap-input" rows={2} value={item.desc} onChange={e => handleArr('advantages', idx, 'desc', e.target.value)} />
-                </div>
-              </div>
-            ))}
           </div>
         </div>
 

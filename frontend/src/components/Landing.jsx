@@ -57,8 +57,9 @@ export const Landing = ({ data, onStartAdmin }) => {
               <Phone size={16} /> {data.phone}
             </a>
             <button className="lp-btn lp-btn--sm" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
-              Murojaat Qilish
+              Murojaat
             </button>
+            <a href="#/admin" className="lp-btn lp-btn--outline lp-btn--sm" style={{ padding: '0.4rem 0.8rem', textDecoration: 'none', marginLeft: '0.5rem' }}>Admin</a>
             <button className="lp-hamburger" onClick={() => setMenuOpen(!menuOpen)}>
               {menuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
